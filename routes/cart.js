@@ -1,53 +1,53 @@
-const {Router} = require('express')
+const { Router } = require("express");
 
-const Product = require('../models/product.js')
+const Product = require("../models/product.js");
 
-const router = Router()
+const router = Router();
 
 function mapCartItems(cart) {
-    return cart.items.map(p => ({
-        ...p.productId._doc,
-        id: p.productId.id,
-        count: p.count
-    }))
+  return cart.items.map((p) => ({
+    ...p.productId._doc,
+    id: p.productId.id,
+    count: p.count,
+  }));
 }
 
 function computePrice(products) {
-    return products.reduce((total, product) => {
-        return total += product.price * product.count
-    }, 0)
+  return products.reduce((total, product) => {
+    return (total += product.price * product.count);
+  }, 0);
 }
 
-router.get('/', async (req, res) => {
-    const user = await req.user
-        .populate('cart.items.productId')
+router.get("/", async (req, res) => {
+  const user = await req.user.populate("cart.items.productId");
 
-    const products = mapCartItems(user.cart)
+  const products = mapCartItems(user.cart);
 
-    res.render('cart.hbs', {
-        title: 'Cart',
-        isCart: true,
-        products: products,
-        price: computePrice(products)
-    })
-})
+  res.render("cart.hbs", {
+    title: "Cart",
+    isCart: true,
+    products: products,
+    price: computePrice(products),
+  });
+});
 
-router.post('/add', async (req, res) => {
-    const product = await Product.findById(req.body.id)
-    await req.user.addToCart(product)
-    res.redirect('/cart')
-})
+router.post("/add", async (req, res) => {
+  const product = await Product.findById(req.body.id);
+  await req.user.addToCart(product);
+  res.redirect("/cart");
+});
 
-router.delete('/remove/:id', async (req, res) => {
-    await req.user.removeFromCart(req.params.id)
-    const user = await req.user.populate('cart.items.productId')
+router.delete("/remove/:id", async (req, res) => {
+  await req.user.removeFromCart(req.params.id);
+  const user = await req.user.populate("cart.items.productId");
 
-    const products = mapCartItems(user.cart)
-    const cart = {
-        products, price: computePrice(products)
-    }
+  const products = mapCartItems(user.cart);
+  const cart = {
+    products,
+    price: computePrice(products),
+  };
 
-    res.json(cart)
-})
+  res.json(cart);
+});
 
-module.exports = router
+module.exports = router;

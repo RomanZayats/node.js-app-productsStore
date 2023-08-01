@@ -5,7 +5,9 @@
   "main": "indexEXP.js",
   "scripts": {
     "start": "node indexEXP.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "eslint:fix": "eslint ./ --fix",
+    "prettier:fix": "npx prettier ./ --write"
   },
   "author": "",
   "license": "ISC",
@@ -13,12 +15,20 @@
     "@handlebars/allow-prototype-access": "^1.0.5",
     "express-handlebars": "^7.0.7",
     "handlebars": "^4.7.7",
-    "express": "^4.18.2",
     "mongoose": "^7.3.4",
+    "express": "^4.18.2",
     "mongodb": "^5.7.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
+    "lint-staged": "^13.2.3",
+    "nodemon": "^2.0.22",
+    "prettier": "3.0.0",
+    "husky": "^8.0.3"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
