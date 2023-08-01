@@ -1,0 +1,34 @@
+.nav-wrapper {
+    padding: 0 2rem;
+    background-color: teal;
+}
+
+.product {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product h1 {
+    margin-bottom: 2rem;
+}
+
+/*.product img {*/
+/*    max-width: 600px;*/
+/*    height: auto*/
+/*}*/
+
+.card {
+    width: 20vw;
+}
+
+.card-action.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-form {
+    margin-bottom: 2rem;
+}

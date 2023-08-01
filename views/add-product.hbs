@@ -1,0 +1,20 @@
+<h1>Add Product Page</h1>
+<form action="/add-product" method="POST">
+    <div class="input-field">
+        <input name="title" placeholder="Type the title" id="product_title" type="text" class="validate" required>
+        <label for="product_title"></label>
+        <span class="helper-text" data-error="Type some text"></span>
+    </div>
+    <div class="input-field">
+        <input name="price" placeholder="Type the price" id="product_price" type="number" class="validate" required min="1">
+        <label for="product_price"></label>
+        <span class="helper-text" data-error="Type some number"></span>
+    </div>
+    <div class="input-field">
+        <input name="imgURL" placeholder="Type the image URL" id="product_img" type="text" class="validate" required>
+        <label for="product_img"></label>
+        <span class="helper-text" data-error="Type some URL"></span>
+    </div>
+
+    <button class="btn btn-primary">Add Product</button>
+</form>

@@ -1,0 +1,343 @@
+.prettierignore
+.eslintignore
+.stylelintcache;
+
+# ===================================================================================
+# expo default gitignore
+
+node_modules/
+.expo/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+
+# ===================================================================================
+# https://stackoverflow.com/questions/49099131/recommended-gitignore-for-react-native
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+.idea
+.gradle
+local.properties
+*.iml
+
+# node.js
+#
+package-lock.json # include if you are using npm - don't use both yarn and npm
+npm-debug.log
+yarn-error.log
+yarn.lock # include if you are using yarn - don't use both npm and yarn
+.pnp.cjs
+.pnp.loader.mjs
+.yarn
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore
+
+# Fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use Fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+
+
+# ===================================================================================
+# https://github.com/expo/expo/blob/main/.gitignore
+
+# Expo
+__generated__
+web-build
+bare-apps
+
+# Node
+node_modules
+
+# Ruby
+.direnv
+
+# Env
+.envrc.local
+
+# Emacs
+*~
+
+# Vim
+.*.swp
+.*.swo
+.*.swn
+.*.swm
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Xcode
+*.xcscmblueprint
+
+# Eclipse
+.project
+.settings
+
+# VSCode
+.history/
+
+# Android
+*.apk
+*.hprof
+/android/**/build
+/android/**/.cxx
+/android/**/local.properties
+/android/captures
+/android/expoview/libs/ReactAndroid-temp
+/android/versioned-react-native/ReactAndroid
+/android/versioned-react-native/ReactCommon
+/android/versioned-react-native/codegen
+/android/versioned-react-native/sdks
+ReactAndroid-temp.aar
+/android/prebuiltHermes
+/android/versioned-abis/**/*.aar
+
+# Tools
+jarjar-rules.txt
+
+# Dynamic Macros
+/ios/Exponent/Supporting/EXBuildConstants.plist.bak
+/ios/Exponent/Supporting/EXBuildConstants.plist.json
+/ios/Exponent/Supporting/EXBuildConstants.plist
+/ios/Exponent/Supporting/GoogleService-Info.plist
+/ios/Exponent/Supporting/Info.plist.bak
+/ios/Exponent/Supporting/Info.plist.json
+/android/expoview/src/main/java/host/exp/exponent/generated/ExponentBuildConstants.java
+/android/app/src/androidTest/java/host/exp/exponent/generated/TestBuildConstants.java
+.kernel-ngrok-url
+
+# Template files
+/android/app/src/main/AndroidManifest.xml
+/android/app/google-services.json
+/android/expoview/src/main/java/host/exp/exponent/generated/ExponentKeys.java
+/apps/bare-expo/android/app/google-services.json
+/apps/bare-expo/ios/BareExpo/GoogleService-Info.plist
+/ios/Exponent/Generated/EXKeys.h
+/ios/ExponentIntegrationTests/EXTestEnvironment.plist
+/exponent-view-template/ios/Podfile
+
+# Template projects
+templates/**/android/**/generated/*
+templates/**/android/app/build
+templates/**/Pods/**
+templates/**/Podfile.lock
+templates/**/yarn.lock
+templates/**/*.tgz
+
+# EYW template
+/packages/expo-yarn-workspaces/workspace-template/yarn.lock
+
+# Codemod
+.codemod.bookmark
+
+# Fastlane
+/*.cer
+/fastlane/report.xml
+/fastlane/Preview.html
+/fastlane/Deployment
+/fastlane/test_output
+/Preview.html
+/gc_keys.json
+/fastlane/gc_keys.json
+
+# CI
+/android/logcat.txt
+
+# Shell apps
+android-shell-app
+shellAppBase-*
+shellAppIntermediates
+shellAppWorkspaces
+/artifacts/*
+
+# Expo Client builds
+/client-builds
+
+# Expo web env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+apps/bare-expo/deploy-url.txt
+
+# Expo Doc merging
+docs/pages/versions/*/react-native/ADDED_*.md
+docs/pages/versions/*/react-native/REMOVED_*.md
+docs/pages/versions/*/react-native/*.diff
+
+# Home
+/home/dist
+
+# Prebuilds
+/packages/**/*.xcframework
+/packages/**/*.spec.json
+/packages/**/Info-generated.plist
+
+# iOS
+/ios/Pods
+/ios/build
+**/ios/.xcode.env.local
+/ios/versioned-react-native/*/ReactNative/sdks/hermes-engine/destroot
+
+# ===================================================================================
+# https://github.com/facebook/react-native/blob/main/.gitignore
+
+# Xcode
+!**/*.xcodeproj
+!**/*.pbxproj
+!**/*.xcworkspacedata
+!**/*.xcsettings
+!**/*.xcscheme
+**/.xcode.env.local
+
+# Gradle
+/build/
+/packages/react-native-gradle-plugin/build/
+/packages/rn-tester/build
+/packages/rn-tester/android/app/.cxx/
+/packages/rn-tester/android/app/build/
+/packages/rn-tester/android/app/gradle/
+/packages/rn-tester/android/app/gradlew
+/packages/rn-tester/android/app/gradlew.bat
+/packages/react-native/ReactAndroid/build/
+/packages/react-native/ReactAndroid/.cxx/
+/packages/react-native/ReactAndroid/gradle/
+/packages/react-native/ReactAndroid/gradlew
+/packages/react-native/ReactAndroid/gradlew.bat
+/packages/react-native/ReactAndroid/external-artifacts/build/
+/packages/react-native/ReactAndroid/external-artifacts/artifacts/
+/packages/react-native/ReactAndroid/hermes-engine/build/
+/packages/react-native/ReactAndroid/hermes-engine/.cxx/
+/packages/react-native/template/android/app/build/
+/packages/react-native/template/android/build/
+
+# Buck
+.buckd
+buck-out
+/.lsp.buckd
+/.lsp-buck-out
+/packages/react-native/ReactAndroid/src/main/jni/prebuilt/lib/
+/packages/react-native/ReactAndroid/src/main/gen
+
+# Android Studio
+.classpath
+
+# Watchman
+.watchmanconfig
+
+/packages/react-native/android/*
+!/packages/react-native/android/README.md
+
+# Node
+*.log
+.nvm
+package-lock.json
+
+# Test generated files
+/packages/react-native/ReactAndroid/src/androidTest/assets/AndroidTestBundle.js
+*.js.meta
+
+/coverage
+/third-party
+
+# Test Reports
+/reports
+
+# Stack Dumps generated when programs crash (Ex. bash.exe.stackdump on Win)
+*.stackdump
+
+# Root dir shouldn't have Xcode project
+/*.xcodeproj
+
+# ReactCommon subdir shouldn't have Xcode project
+/packages/react-native/ReactCommon/**/*.xcodeproj
+
+# Libs that shouldn't have Xcode project
+/packages/react-native/Libraries/FBLazyVector/**/*.xcodeproj
+/packages/react-native/Libraries/RCTRequired/**/*.xcodeproj
+/packages/react-native/React/CoreModules/**/*.xcodeproj
+/packages/react-native/React/FBReactNativeSpec/**/*.xcodeproj
+/packages/react-native-codegen/**/*.xcodeproj
+
+# Ruby Gems (Bundler)
+/packages/react-native/vendor
+/packages/react-native/template/vendor
+.ruby-version
+/**/.ruby-version
+
+# iOS / CocoaPods
+/packages/react-native/template/ios/build/
+/packages/react-native/template/ios/Pods/
+/packages/react-native/template/ios/Podfile.lock
+/packages/rn-tester/Gemfile.lock
+
+# Ignore RNTester specific Pods, but keep the __offline_mirrors__ here.
+/packages/rn-tester/Pods/*
+!/packages/rn-tester/Pods/__offline_mirrors_hermes__
+!/packages/rn-tester/Pods/__offline_mirrors_jsc__
+
+# @react-native/codegen
+/packages/react-native/React/FBReactNativeSpec/FBReactNativeSpec
+/packages/react-native-codegen/lib
+/packages/react-native-codegen/tmp/
+/packages/react-native/ReactCommon/react/renderer/components/rncore/
+/packages/rn-tester/NativeModuleExample/ScreenshotManagerSpec*
+/**/RCTThirdPartyFabricComponentsProvider.*
+
+# @react-native/codegen-typescript-test
+/packages/react-native-codegen-typescript-test/lib
+
+# Additional SDKs
+/packages/react-native/sdks/download
+/packages/react-native/sdks/hermes
+/packages/react-native/sdks/hermesc
+
+# Visual studio
+.vscode
+.vs
