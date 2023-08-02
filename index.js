@@ -1,7 +1,8 @@
+const expressHandlebars = require("express-handlebars");
+const envFile = require("dotenv").config().parsed;
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
-const expressHandlebars = require("express-handlebars");
 const Handlebars = require("handlebars");
 const mongoose = require("mongoose");
 const express = require("express");
@@ -46,8 +47,7 @@ app.use("/", homeRoute);
 
 async function start() {
   try {
-    const uri =
-      "mongodb+srv://zayatsroman:Zayats_1988@cluster0.7fzqv0x.mongodb.net/shop";
+    const uri = `mongodb+srv://${envFile.MONGO_USER}:${envFile.MONGO_PW}@${envFile.MONGO_CLUSTER}.mongodb.net/${envFile.MONGO_DB_NAME}`;
     await mongoose.connect(uri, {
       useNewUrlParser: true,
     });
@@ -71,29 +71,3 @@ async function start() {
 }
 
 start();
-
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://zayatsroman:<password>@cluster0.7fzqv0x.mongodb.net/?retryWrites=true&w=majority";
-//
-// // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-// const client = new MongoClient(uri, {
-//     serverApi: {
-//         version: ServerApiVersion.v1,
-//         strict: true,
-//         deprecationErrors: true,
-//     }
-// });
-//
-// async function run() {
-//     try {
-//         // Connect the client to the server	(optional starting in v4.7)
-//         await client.connect();
-//         // Send a ping to confirm a successful connection
-//         await client.db("admin").command({ ping: 1 });
-//         console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//     } finally {
-//         // Ensures that the client will close when you finish/error
-//         await client.close();
-//     }
-// }
-// run().catch(console.dir);
