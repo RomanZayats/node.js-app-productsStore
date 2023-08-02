@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
       "user.userId",
     );
 
-    res.render("orders", {
+    res.render("orders.hbs", {
       isOrder: true,
       title: "Orders",
       orders: orders.map((o) => ({
