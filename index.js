@@ -1,5 +1,4 @@
 const expressHandlebars = require("express-handlebars");
-const envFile = require("dotenv").config().parsed;
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
@@ -7,6 +6,9 @@ const Handlebars = require("handlebars");
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
+
+const { MONGO_USER, MONGO_PW, MONGO_CLUSTER, MONGO_DB_NAME } =
+  require("dotenv").config().parsed;
 
 const addProductRoute = require("./routes/addProduct");
 const productsRoute = require("./routes/products");
@@ -47,7 +49,7 @@ app.use("/", homeRoute);
 
 async function start() {
   try {
-    const uri = `mongodb+srv://${envFile.MONGO_USER}:${envFile.MONGO_PW}@${envFile.MONGO_CLUSTER}.mongodb.net/${envFile.MONGO_DB_NAME}`;
+    const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PW}@${MONGO_CLUSTER}.mongodb.net/${MONGO_DB_NAME}`;
     await mongoose.connect(uri, {
       useNewUrlParser: true,
     });
