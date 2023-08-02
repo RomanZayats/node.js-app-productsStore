@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 
-const { MONGO_USER, MONGO_PW, MONGO_CLUSTER, MONGO_DB_NAME } =
+const { PORT, MONGO_USER, MONGO_PW, MONGO_CLUSTER, MONGO_DB_NAME } =
   require("dotenv").config().parsed;
 
 const addProductRoute = require("./routes/addProduct");
@@ -66,7 +66,7 @@ async function start() {
       await user.save();
     }
 
-    app.listen(process.env.PORT || 3000);
+    app.listen(PORT || 3000);
   } catch (e) {
     console.log(e);
   }
