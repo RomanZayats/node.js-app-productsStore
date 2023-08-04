@@ -1,4 +1,6 @@
-const toCurrency = require("./priceHandler")(function cartHandler() {
+const toCurrency = require("./priceHandler");
+
+(function cartHandler() {
   const $cart = document.querySelector("#cart");
   if ($cart) {
     $cart.addEventListener("click", (event) => {

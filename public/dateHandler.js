@@ -9,7 +9,7 @@ function toDate(date) {
   }).format(new Date(date));
 }
 
-(function priceHandler() {
+(function dateHandler() {
   document.querySelectorAll(".date").forEach((node) => {
     node.textContent = toDate(node.textContent);
   });
