@@ -12,6 +12,7 @@ const path = require("path");
 const { PORT, MONGO_DB_URI } = require("dotenv").config().parsed;
 
 const varMiddleware = require("./middleware/variables");
+const userMiddleware = require("./middleware/user");
 const addProductRoute = require("./routes/addProduct");
 const productsRoute = require("./routes/products");
 const ordersRoute = require("./routes/orders");
@@ -47,6 +48,7 @@ app.use(
   }),
 );
 app.use(varMiddleware);
+app.use(userMiddleware);
 
 app.use("/add-product", addProductRoute);
 app.use("/products", productsRoute);
