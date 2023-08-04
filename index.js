@@ -18,7 +18,6 @@ const ordersRoute = require("./routes/orders");
 const authRoutes = require("./routes/auth");
 const cartRoute = require("./routes/cart");
 const homeRoute = require("./routes/home");
-const User = require("./models/user");
 
 const app = express();
 
@@ -31,16 +30,6 @@ const hbs = expressHandlebars.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", "./views");
-
-app.use(async (req, res, next) => {
-  try {
-    const user = await User.findById("64c0ef9769e114feb4edce50");
-    req.user = user;
-    next();
-  } catch (e) {
-    console.log(e);
-  }
-});
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -66,18 +55,6 @@ async function start() {
     await mongoose.connect(uri, {
       useNewUrlParser: true,
     });
-
-    const candidate = await User.findOne();
-    if (!candidate) {
-      const user = new User({
-        email: "rzayats@ukr.net",
-        name: "rzayats",
-        cart: {
-          items: [],
-        },
-      });
-      await user.save();
-    }
 
     app.listen(PORT || 3000);
   } catch (e) {
