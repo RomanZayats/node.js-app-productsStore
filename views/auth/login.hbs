@@ -1,100 +1,104 @@
 <div class="auth">
-    <div class="row">
-        <div class="col s12">
-            <ul class="tabs">
-                <li class="tab col s6"><a class="active" href="#login">Login</a></li>
-                <li class="tab col s6"><a href="#register">Register</a></li>
-            </ul>
-        </div>
-        <div id="login" class="col s6 offset-s3">
-            <h1>Login to shop</h1>
-            <form action="/auth/login" method="POST">
-                <div class="input-field">
-                    <input
-                            name="email"
-                            placeholder="Type the email"
-                            id="email"
-                            type="text"
-                            class="validate"
-                            required
-                    />
-                    <label for="email">Email</label>
-                    <span class="helper-text" data-error="Type some email"></span>
-                </div>
-                <div class="input-field">
-                    <input
-                            name="password"
-                            placeholder="Type the password"
-                            id="password"
-                            type="password"
-                            class="validate"
-                            required
-                    />
-                    <label for="password">Password</label>
-                    <span class="helper-text" data-error="Type some password"></span>
-                </div>
-
-                <button class="btn btn-primary" type="submit">Login</button>
-            </form>
-        </div>
-
-        <div id="register" class="col s6 offset-s3">
-            <h1>Create new account</h1>
-            <form action="/auth/register" method="POST">
-                <div class="input-field">
-                    <input
-                            name="email"
-                            placeholder="Type the email"
-                            id="reg_email"
-                            type="text"
-                            class="validate"
-                            required
-                    />
-                    <label for="email">Email</label>
-                    <span class="helper-text" data-error="Type some email"></span>
-                </div>
-                <div class="input-field">
-                    <input
-                            name="password"
-                            placeholder="Type the password"
-                            id="reg_password"
-                            type="password"
-                            class="validate"
-                            required
-                    />
-                    <label for="password">Password</label>
-                    <span class="helper-text" data-error="Type some password"></span>
-                </div>
-
-                <div class="input-field">
-                    <input
-                            name="password_confirm"
-                            placeholder="Repeat the password"
-                            id="password_confirm"
-                            type="password"
-                            class="validate"
-                            required
-                    />
-                    <label for="password_confirm">Password Confirmation</label>
-                    <span class="helper-text" data-error="Type same password"></span>
-                </div>
-
-                <div class="input-field">
-                    <input
-                            name="name"
-                            placeholder="Type your name"
-                            id="reg_name"
-                            type="text"
-                            class="validate"
-                            required
-                    />
-                    <label for="name">Your name</label>
-                    <span class="helper-text" data-error="Type your name"></span>
-                </div>
-
-                <button class="btn btn-primary" type="submit">Register</button>
-            </form>
-
-        </div>
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6"><a class="active" href="#login">Login</a></li>
+        <li class="tab col s6"><a href="#register">Register</a></li>
+      </ul>
     </div>
+    <div id="login" class="col s6 offset-s3">
+      <h1>Login to shop</h1>
+      <form action="/auth/login" method="POST">
+        <div class="input-field">
+          <input
+            name="email"
+            placeholder="Type the email"
+            id="email"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="email">Email</label>
+          <span class="helper-text" data-error="Type some email"></span>
+        </div>
+        <div class="input-field">
+          <input
+            name="password"
+            placeholder="Type the password"
+            id="password"
+            type="password"
+            class="validate"
+            required
+          />
+          <label for="password">Password</label>
+          <span class="helper-text" data-error="Type some password"></span>
+        </div>
+
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+
+    <div id="register" class="col s6 offset-s3">
+      <h1>Create new account</h1>
+      <form action="/auth/register" method="POST">
+        <div class="input-field">
+          <input
+            name="email"
+            placeholder="Type the email"
+            id="reg_email"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="email">Email</label>
+          <span class="helper-text" data-error="Type some email"></span>
+        </div>
+        <div class="input-field">
+          <input
+            name="password"
+            placeholder="Type the password"
+            id="reg_password"
+            type="password"
+            class="validate"
+            required
+          />
+          <label for="password">Password</label>
+          <span class="helper-text" data-error="Type some password"></span>
+        </div>
+
+        <div class="input-field">
+          <input
+            name="password_confirm"
+            placeholder="Repeat the password"
+            id="password_confirm"
+            type="password"
+            class="validate"
+            required
+          />
+          <label for="password_confirm">Password Confirmation</label>
+          <span class="helper-text" data-error="Type same password"></span>
+        </div>
+
+        <div class="input-field">
+          <input
+            name="name"
+            placeholder="Type your name"
+            id="reg_name"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="name">Your name</label>
+          <span class="helper-text" data-error="Type your name"></span>
+        </div>
+
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+
+        <button class="btn btn-primary" type="submit">Register</button>
+      </form>
+
+    </div>
+  </div>
 </div>

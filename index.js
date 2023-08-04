@@ -7,6 +7,7 @@ const MongoStore = require("connect-mongodb-session")(session);
 const Handlebars = require("handlebars");
 const mongoose = require("mongoose");
 const express = require("express");
+const csrf = require("csurf");
 const path = require("path");
 
 const { PORT, MONGO_DB_URI } = require("dotenv").config().parsed;
@@ -47,6 +48,7 @@ app.use(
     store,
   }),
 );
+app.use(csrf());
 app.use(varMiddleware);
 app.use(userMiddleware);
 
