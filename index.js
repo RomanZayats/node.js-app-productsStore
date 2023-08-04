@@ -3,13 +3,13 @@ const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const session = require("express-session");
+const MongoStore = require("connect-mongodb-session")(session);
 const Handlebars = require("handlebars");
 const mongoose = require("mongoose");
 const express = require("express");
 const path = require("path");
 
-const { PORT, MONGO_USER, MONGO_PW, MONGO_CLUSTER, MONGO_DB_NAME } =
-  require("dotenv").config().parsed;
+const { PORT, MONGO_DB_URI } = require("dotenv").config().parsed;
 
 const varMiddleware = require("./middleware/variables");
 const addProductRoute = require("./routes/addProduct");
@@ -27,6 +27,11 @@ const hbs = expressHandlebars.create({
   extname: "hbs",
 });
 
+const store = new MongoStore({
+  collection: "sessions",
+  uri: MONGO_DB_URI,
+});
+
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", "./views");
@@ -38,6 +43,7 @@ app.use(
     secret: "some secret value",
     resave: false,
     saveUninitialized: false,
+    store,
   }),
 );
 app.use(varMiddleware);
@@ -51,8 +57,7 @@ app.use("/", homeRoute);
 
 async function start() {
   try {
-    const uri = `mongodb+srv://${MONGO_USER}:${MONGO_PW}@${MONGO_CLUSTER}.mongodb.net/${MONGO_DB_NAME}`;
-    await mongoose.connect(uri, {
+    await mongoose.connect(MONGO_DB_URI, {
       useNewUrlParser: true,
     });
 
