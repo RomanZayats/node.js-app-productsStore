@@ -9,13 +9,13 @@ document.querySelectorAll(".price").forEach((node) => {
   node.textContent = toCurrency(node.textContent);
 });
 
+// ToDo: refactor
 const $cart = document.querySelector("#cart");
 if ($cart) {
   $cart.addEventListener("click", (event) => {
     if (event.target.classList.contains("js-remove")) {
       const id = event.target.dataset.id;
       const csrf = event.target.dataset.csrf;
-      console.log("handler");
 
       fetch("/cart/remove/" + id, {
         method: "DELETE",
@@ -29,7 +29,7 @@ if ($cart) {
             const html = cart.products
               .map(
                 (product) =>
-                  `<tr><td>${product.title}</td><td>${product.count}</td><td>${product.price}</td><td><button class="btn btn-small js-remove" data-id="${product.id}">Remove</button></td></tr>`,
+                  `<tr><td>${product.title}</td><td>${product.count}</td><td>${product.price}</td><td><button class="btn btn-small js-remove" data-id="${product.id}" data-csrf="${csrf}">Remove</button></td></tr>`,
               )
               .join("");
             $cart.querySelector("tbody").innerHTML = html;

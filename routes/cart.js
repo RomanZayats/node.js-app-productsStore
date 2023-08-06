@@ -38,6 +38,7 @@ router.post("/add", auth, async (req, res) => {
   res.redirect("/cart");
 });
 
+// ToDo: refactor ajax
 router.delete("/remove/:id", auth, async (req, res) => {
   await req.user.removeFromCart(req.params.id);
   const user = await req.user.populate("cart.items.productId");
