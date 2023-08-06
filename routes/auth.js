@@ -45,7 +45,12 @@ router.post("/login", async (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, password, name, repeat } = req.body;
+    const {
+      email,
+      password,
+      name,
+      // repeat
+    } = req.body;
 
     const candidate = await User.findOne({ email });
     if (candidate) {

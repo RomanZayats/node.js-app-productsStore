@@ -2,14 +2,14 @@
   "name": "udemy-express",
   "version": "1.0.0",
   "description": "",
-  "main": "indexEXP.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node indexEXP.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "eslint:fix": "eslint ./ --fix",
     "prettier:fix": "npx prettier ./ --write"
   },
-  "author": "",
+  "author": "Roman Zayats",
   "license": "ISC",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
