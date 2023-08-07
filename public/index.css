@@ -43,14 +43,18 @@
 .tabs .tab a {
   color: grey;
 }
+
 .tabs .tab a:hover {
   background-color: lightgrey;
   color: teal;
 }
+
+.tabs .tab a.active,
 .tabs .tab a:focus.active {
   background-color: transparent;
   color: teal;
 }
+
 .tabs .indicator {
   background-color: teal;
 }
