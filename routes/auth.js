@@ -9,6 +9,8 @@ router.get("/login", (req, res) => {
   res.render("auth/login.hbs", {
     title: "Authorization",
     isLogin: true,
+    errorLogin: req.flash("errorLogin"),
+    errorRegister: req.flash("errorRegister"),
   });
 });
 
@@ -33,9 +35,11 @@ router.post("/login", async (req, res) => {
           res.redirect("/");
         });
       } else {
+        req.flash("errorLogin", "Incorrect password");
         res.redirect("/auth/login#login");
       }
     } else {
+      req.flash("errorLogin", "No user found. Register");
       res.redirect("/auth/login#login");
     }
   } catch (e) {
@@ -54,6 +58,7 @@ router.post("/register", async (req, res) => {
 
     const candidate = await User.findOne({ email });
     if (candidate) {
+      req.flash("errorRegister", "User with this email already exist");
       res.redirect("/auth/login#register");
     } else {
       const hashPassword = await bcrypt.hash(password, 10);

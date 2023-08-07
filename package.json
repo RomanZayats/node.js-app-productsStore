@@ -13,25 +13,26 @@
   "license": "ISC",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^3.1.1",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
     "express-handlebars": "^7.0.7",
     "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
-    "express": "^4.18.2",
-    "bcryptjs": "^2.4.3",
-    "mongoose": "^7.3.4",
-    "dotenv": "^16.3.1",
     "mongodb": "^5.7.0",
-    "csurf": "^1.11.0",
+    "mongoose": "^7.3.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.9.0",
+    "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "nodemon": "^2.0.22",
-    "prettier": "3.0.0",
-    "eslint": "^8.46.0",
-    "husky": "^8.0.3"
+    "prettier": "3.0.0"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
