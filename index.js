@@ -11,7 +11,8 @@ const express = require("express");
 const csrf = require("csurf");
 const path = require("path");
 
-const { PORT, MONGO_DB_URI } = require("dotenv").config().parsed;
+const { PORT, MONGO_DB_URI, SESSION_SECRET } =
+  require("dotenv").config().parsed;
 
 const varMiddleware = require("./middleware/variables");
 const userMiddleware = require("./middleware/user");
@@ -43,7 +44,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: "some secret value",
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     store,
