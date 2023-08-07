@@ -1,6 +1,5 @@
 .nav-wrapper {
   padding: 0 2rem;
-  background-color: teal;
 }
 
 .product {
@@ -13,11 +12,6 @@
 .product h1 {
   margin-bottom: 2rem;
 }
-
-/*.product img {*/
-/*    max-width: 600px;*/
-/*    height: auto*/
-/*}*/
 
 .card {
   width: 20vw;
@@ -44,4 +38,19 @@
   margin-bottom: 1rem;
   background: rgba(255, 0, 0, 0.3);
   color: red;
+}
+
+.tabs .tab a {
+  color: grey;
+}
+.tabs .tab a:hover {
+  background-color: lightgrey;
+  color: teal;
+}
+.tabs .tab a:focus.active {
+  background-color: transparent;
+  color: teal;
+}
+.tabs .indicator {
+  background-color: teal;
 }
