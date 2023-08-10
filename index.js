@@ -15,6 +15,7 @@ const { PORT, MONGO_DB_URI, SESSION_SECRET } =
   require("dotenv").config().parsed;
 
 const varMiddleware = require("./middleware/variables");
+const errorMiddleware = require("./middleware/error");
 const userMiddleware = require("./middleware/user");
 const addProductRoute = require("./routes/addProduct");
 const productsRoute = require("./routes/products");
@@ -62,6 +63,7 @@ app.use("/orders", ordersRoute);
 app.use("/auth", authRoutes);
 app.use("/cart", cartRoute);
 app.use("/", homeRoute);
+app.use(errorMiddleware);
 
 async function start() {
   try {
