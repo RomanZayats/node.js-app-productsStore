@@ -15,15 +15,21 @@ exports.registerValidators = [
       } catch (e) {
         console.log(e);
       }
-    }),
+    })
+    .normalizeEmail(),
   body("password", "Enter valid password: 6-56 symbols")
     .isLength({ min: 6, max: 56 })
-    .isAlphanumeric(),
-  body("passwordConfirm").custom((value, { req }) => {
-    if (value !== req.body.password) {
-      throw new Error("Passwords are not equal");
-    }
-    return true;
-  }),
-  body("name", "Enter valid name: minimum 3 symbols").isLength({ min: 3 }),
+    .isAlphanumeric()
+    .trim(),
+  body("passwordConfirm")
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error("Passwords are not equal");
+      }
+      return true;
+    })
+    .trim(),
+  body("name", "Enter valid name: minimum 3 symbols")
+    .isLength({ min: 3 })
+    .trim(),
 ];
