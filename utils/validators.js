@@ -66,3 +66,8 @@ exports.loginValidators = [
     })
     .trim(),
 ];
+exports.productValidators = [
+  body("title", "Enter valid title: min 3 symbols").isLength({ min: 3 }).trim(),
+  body("price", "Enter numeric price value").isNumeric().trim(),
+  body("imgURL", "Enter valid URL").isURL().trim(),
+];

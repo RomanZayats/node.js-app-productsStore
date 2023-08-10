@@ -1,5 +1,9 @@
 <h1>Add Product Page</h1>
-<form action="/add-product" method="POST">
+{{#if error}}
+  <p class="alert">{{error}}</p>
+{{/if}}
+
+<form action="/add-product" method="POST" novalidate>
   <div class="input-field">
     <input
       name="title"
@@ -8,6 +12,7 @@
       type="text"
       class="validate"
       required
+      value="{{data.title}}"
     />
     <label for="product_title"></label>
     <span class="helper-text" data-error="Type some text"></span>
@@ -21,6 +26,7 @@
       class="validate"
       required
       min="1"
+      value="{{data.price}}"
     />
     <label for="product_price"></label>
     <span class="helper-text" data-error="Type some number"></span>
@@ -33,6 +39,7 @@
       type="text"
       class="validate"
       required
+      value="{{data.imgURL}}"
     />
     <label for="product_img"></label>
     <span class="helper-text" data-error="Type some URL"></span>

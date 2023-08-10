@@ -1,5 +1,7 @@
+const { validationResult } = require("express-validator");
 const { Router } = require("express");
 
+const { productValidators } = require("../utils/validators");
 const Product = require("../models/product");
 const auth = require("../middleware/auth");
 
@@ -57,11 +59,21 @@ router.get("/:id/edit", auth, async (req, res) => {
   }
 });
 
-router.post("/edit", auth, async (req, res) => {
+router.post("/edit", auth, productValidators, async (req, res) => {
+  const { id } = req.body;
+  delete req.body.id;
+  const product = await Product.findById(id);
+
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).render("edit-product.hbs", {
+      title: `Edit ${product.title}`,
+      error: errors.array()[0].msg,
+      product,
+    });
+  }
+
   try {
-    const { id } = req.body;
-    delete req.body.id;
-    const product = await Product.findById(id);
     if (!isOwner(product, req)) {
       return res.redirect("/products");
     }

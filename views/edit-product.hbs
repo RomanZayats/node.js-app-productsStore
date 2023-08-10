@@ -1,5 +1,9 @@
 <h1>Edit {{product.title}}</h1>
-<form action="/products/edit" method="POST" class="product-form">
+{{#if error}}
+  <p class="alert">{{error}}</p>
+{{/if}}
+
+<form action="/products/edit" method="POST" class="product-form" novalidate>
   <div class="input-field">
     <input
       name="title"
