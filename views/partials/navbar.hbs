@@ -1,48 +1,54 @@
 <nav>
-    <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Store</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Store</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-            {{#if isHome}}
-                <li class="active"><a href="/">Home Page</a></li>
-            {{else}}
-                <li><a href="/">Home Page</a></li>
-            {{/if}}
+      {{#if isHome}}
+        <li class="active"><a href="/">Home Page</a></li>
+      {{else}}
+        <li><a href="/">Home Page</a></li>
+      {{/if}}
 
-            {{#if isProducts}}
-                <li class="active"><a href="/products">Products Page</a></li>
-            {{else}}
-                <li><a href="/products">Products Page</a></li>
-            {{/if}}
+      {{#if isProducts}}
+        <li class="active"><a href="/products">Products Page</a></li>
+      {{else}}
+        <li><a href="/products">Products Page</a></li>
+      {{/if}}
 
-            {{#if isAuth}}
-                {{#if isAddProduct}}
-                    <li class="active"><a href="/add-product">Add Product Page</a></li>
-                {{else}}
-                    <li><a href="/add-product">Add Product Page</a></li>
-                {{/if}}
+      {{#if isAuth}}
+        {{#if isAddProduct}}
+          <li class="active"><a href="/add-product">Add Product Page</a></li>
+        {{else}}
+          <li><a href="/add-product">Add Product Page</a></li>
+        {{/if}}
 
-                {{#if isCart}}
-                    <li class="active"><a href="/cart">Cart</a></li>
-                {{else}}
-                    <li><a href="/cart">Cart</a></li>
-                {{/if}}
+        {{#if isProfile}}
+          <li class="active"><a href="/profile">Profile</a></li>
+        {{else}}
+          <li><a href="/profile">Profile</a></li>
+        {{/if}}
 
-                {{#if isOrder}}
-                    <li class="active"><a href="/orders">Orders</a></li>
-                {{else}}
-                    <li><a href="/orders">Orders</a></li>
-                {{/if}}
+        {{#if isCart}}
+          <li class="active"><a href="/cart">Cart</a></li>
+        {{else}}
+          <li><a href="/cart">Cart</a></li>
+        {{/if}}
 
-                <li><a href="/auth/logout">Logout</a></li>
+        {{#if isOrder}}
+          <li class="active"><a href="/orders">Orders</a></li>
+        {{else}}
+          <li><a href="/orders">Orders</a></li>
+        {{/if}}
 
-            {{else}}
-                {{#if isLogin}}
-                    <li class="active"><a href="/auth/login#login">Login</a></li>
-                {{else}}
-                    <li><a href="/auth/login#login">Login</a></li>
-                {{/if}}
-            {{/if}}
-        </ul>
-    </div>
+        <li><a href="/auth/logout">Logout</a></li>
+
+      {{else}}
+        {{#if isLogin}}
+          <li class="active"><a href="/auth/login#login">Login</a></li>
+        {{else}}
+          <li><a href="/auth/login#login">Login</a></li>
+        {{/if}}
+      {{/if}}
+    </ul>
+  </div>
 </nav>

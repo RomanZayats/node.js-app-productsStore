@@ -17,8 +17,10 @@ const { PORT, MONGO_DB_URI, SESSION_SECRET } =
 const varMiddleware = require("./middleware/variables");
 const errorMiddleware = require("./middleware/error");
 const userMiddleware = require("./middleware/user");
+const fileMiddleware = require("./middleware/file");
 const addProductRoute = require("./routes/addProduct");
 const productsRoute = require("./routes/products");
+const profileRoute = require("./routes/profile");
 const ordersRoute = require("./routes/orders");
 const authRoutes = require("./routes/auth");
 const cartRoute = require("./routes/cart");
@@ -43,6 +45,7 @@ app.set("view engine", "hbs");
 app.set("views", "./views");
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
@@ -52,6 +55,7 @@ app.use(
     store,
   }),
 );
+app.use(fileMiddleware.single("avatar"));
 app.use(csrf());
 app.use(flash());
 app.use(varMiddleware);
@@ -59,6 +63,7 @@ app.use(userMiddleware);
 
 app.use("/add-product", addProductRoute);
 app.use("/products", productsRoute);
+app.use("/profile", profileRoute);
 app.use("/orders", ordersRoute);
 app.use("/auth", authRoutes);
 app.use("/cart", cartRoute);

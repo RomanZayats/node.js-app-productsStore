@@ -59,3 +59,8 @@
 .tabs .indicator {
   background-color: teal;
 }
+
+.avatar {
+  max-width: 200px;
+  height: auto;
+}
