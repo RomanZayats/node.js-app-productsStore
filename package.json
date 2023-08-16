@@ -7,7 +7,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "eslint:fix": "eslint ./ --fix",
-    "prettier:fix": "npx prettier ./ --write"
+    "prettier:fix": "npx prettier ./ --write",
+    "prepare": "husky install"
   },
   "author": "Roman Zayats",
   "license": "ISC",
@@ -34,7 +35,7 @@
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.9.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^13.3.0",
     "nodemon": "^2.0.22",
     "prettier": "3.0.0"
   },
