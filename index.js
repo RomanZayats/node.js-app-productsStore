@@ -9,6 +9,7 @@ const Handlebars = require("handlebars");
 const flash = require("connect-flash");
 const mongoose = require("mongoose");
 const express = require("express");
+const helmet = require("helmet");
 const csrf = require("csurf");
 const path = require("path");
 
@@ -59,8 +60,17 @@ app.use(
 app.use(fileMiddleware.single("avatar"));
 app.use(csrf());
 app.use(flash());
-app.use(varMiddleware);
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "img-src": ["'self'", "https: data: blob:"],
+      "script-src": ["'self'", "https: data: blob:"],
+    },
+  }),
+);
 app.use(compression());
+app.use(varMiddleware);
 app.use(userMiddleware);
 
 app.use("/add-product", addProductRoute);
