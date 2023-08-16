@@ -4,6 +4,7 @@ const {
 } = require("@handlebars/allow-prototype-access");
 const session = require("express-session");
 const MongoStore = require("connect-mongodb-session")(session);
+const compression = require("compression");
 const Handlebars = require("handlebars");
 const flash = require("connect-flash");
 const mongoose = require("mongoose");
@@ -59,6 +60,7 @@ app.use(fileMiddleware.single("avatar"));
 app.use(csrf());
 app.use(flash());
 app.use(varMiddleware);
+app.use(compression());
 app.use(userMiddleware);
 
 app.use("/add-product", addProductRoute);
